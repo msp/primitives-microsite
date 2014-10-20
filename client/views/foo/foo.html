@@ -1,0 +1,69 @@
+<template name="foo"> p
+    <div style={{bgcolor}}>
+        <!-- <button id="show-greeting">Toggle Greeting</button> -->
+        <!-- <div id="greeting">Hello there!</div> -->
+        {{ mspLogger}}
+        <div id="two-js-container"></div>
+        <script type="text/javascript">
+          $(function() {
+
+            var two = new Two({
+              fullscreen: false,
+              autostart: true
+            }).appendTo(document.getElementById("two-js-container"));
+
+            var circle = two.makeCircle(72, 100, 500);
+
+              // The object returned has many stylable properties:
+              circle.fill = '#FF8000';
+              circle.stroke = 'orangered'; // Accepts all valid css color
+              circle.linewidth = 5;
+   
+            var rect = two.makeRectangle(two.width / 2, two.height / 2, 200, 200);
+            rect.noStroke().fill = getRandomColor();
+
+            // Update the renderer in order to generate corresponding DOM Elements.
+
+            two.update();
+
+            $(rect._renderer.elem)
+              .css('cursor', 'pointer')
+              .click(function(e) {
+                rect.fill = getRandomColor();
+              });
+
+            $(circle._renderer.elem)
+              .css('cursor', 'pointer')
+              .click(function(e) {
+                circle.fill = getRandomColor();
+              });
+
+            // two.bind('update', function(frameCount, timeDelta) {
+            //   rect.rotation = frameCount / 60;
+            // });
+
+              // Bind a function to scale and rotate the circle
+              // to the animation loop.
+              // two.bind('update', function(frameCount) {
+              //   rect.rotation = frameCount / 60;
+              //   // This code is called everytime two.update() is called.
+              //   // Effectively 60 times per second.
+              //   if (circle.scale > 0.9999) {
+              //     circle.scale = circle.rotation = 0;
+              //   }
+              //   var t = (1 - circle.scale) * 0.125;
+              //   circle.scale += t;
+              //   circle.rotation += t * 4 * Math.PI;
+              // }).play();  // Finally, start the animation loop
+
+            function getRandomColor() {
+              return 'rgb('
+                + Math.floor(Math.random() * 255) + ','
+                + Math.floor(Math.random() * 255) + ','
+                + Math.floor(Math.random() * 255) + ')';
+            }
+
+          });
+        </script>
+    </div>
+</template>
