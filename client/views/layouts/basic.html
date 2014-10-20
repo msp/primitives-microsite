@@ -3,6 +3,13 @@
         {{> yield region='header'}}
     </header>
     <div id="main">
+        <script type="text/javascript">
+            var two = new Two({
+              fullscreen: false,
+              autostart: true
+            }).appendTo(document.getElementById("two-js-container"));
+
+        </script>
         {{> yield}}
         {{! Also a sidebar! }}
     </div>
