@@ -9,10 +9,6 @@
             // geometry
             var info = new AVUgenOne();
 
-            var circle = two.makeCircle(500, 100, 50);
-            circle.fill = '#FF8000';
-            circle.stroke = 'orangered'; // Accepts all valid css color
-            circle.linewidth = 5;
             var rect = two.makeRectangle(two.width / 2, two.height / 2, 20, 20);
             rect.noStroke().fill = getRandomColor();
 
@@ -27,8 +23,10 @@
                 // dummy to switch off animation
             }
 
-            function animate(frameCount) { 
-                TWEEN.update(); 
+            function animate(frameCount, timeDelta) { 
+                // console.log(frameCount+" : "+timeDelta);
+                TWEEN.update();
+                // info.update(frameCount, timeDelta);
             }
 
             // Bindings
@@ -38,21 +36,20 @@
                 rect.fill = getRandomColor();
               });
 
-            $(circle._renderer.elem)
+            $(info.hotspot._renderer.elem)
               .css('cursor', 'pointer')
               .click(function(e) {
-                circle.fill = getRandomColor();
-              });
+                info.hotspot.fill = getRandomColor();
+                });
 
             // two.bind('update', function(frameCount, timeDelta) {
-            //   rect.rotation = frameCount / 60;
+            //   info.group.scale += 0.05
             // });
-
             function getRandomColor() {
-              return 'rgb('
-                + Math.floor(Math.random() * 255) + ','
-                + Math.floor(Math.random() * 255) + ','
-                + Math.floor(Math.random() * 255) + ')';
+                return 'rgb('
+                  + Math.floor(Math.random() * 255) + ','
+                  + Math.floor(Math.random() * 255) + ','
+                  + Math.floor(Math.random() * 255) + ')';
             }
 
           });
