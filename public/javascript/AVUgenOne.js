@@ -9,24 +9,51 @@
 
     self.x = two.width/5
     self.y = two.height/3
-    self.duration = 500;
+    self.duration = 5000;
 
     drawGeometry();
 
+    var t1Scale = {scale: 0.1}
+    var t1TargetScale = {scale: 0.9}
+
+    var t2Scale = {scale: 0.9}
+    var t2TargetScale = {scale: 0.1}
+
+    var position = { x : 0, y: 300 };
+    var target = { x : 400, y: 50 };
+
     // Animation
     self.tweens.push(
-      new TWEEN.Tween(self.hotspot.scale)
-            // .to({ scale: 0.5 }, self.duration) // not sure how this works?
+      new TWEEN.Tween(t1Scale)
+            .to(t1TargetScale, self.duration)
             .delay(self.delay)
             .easing(self.easing)
             .onUpdate(function(t) {
-              self.hotspot.scale += 0.05;
+              // console.log(originalScale.scale)
+              // self.hotspot.translation.set(position.x, position.y);
+              self.hotspot.scale = t1Scale.scale;
+            })
+            .onComplete(function() {
+              // self.play({semitones: -6});
+              // self.tweens[1].start();
+            })
+      ,new TWEEN.Tween(t2Scale)
+            .to(t2TargetScale, self.duration)
+            .delay(self.delay)
+            .easing(self.easing)
+            .onUpdate(function(t) {
+              // console.log(originalScale.scale)
+              // self.hotspot.translation.set(position.x, position.y);
+              self.hotspot.scale = t2Scale.scale;
             })
             .onComplete(function() {
               // self.play({semitones: -6});
               // self.tweens[1].start();
             })
     );
+
+    // self.tweens[0].chain(self.tweens[1]);
+    // self.tweens[1].chain(self.tweens[0]);
 
     // Utils
     function drawGeometry() {
@@ -45,13 +72,13 @@
       self.hotspot = circle;
     }
 
-    function update(frameCount, timeDelta) {
-      if (frameCount % 2 == 0) {
-          self.hotspot.fill = "white";
-      } else {
-          self.hotspot.fill = "#FF8000";
-      }
-    };
+    // function update(frameCount, timeDelta) {
+    //   if (frameCount % 2 == 0) {
+    //       self.hotspot.fill = "white";
+    //   } else {
+    //       self.hotspot.fill = "#FF8000";
+    //   }
+    // };
 
     return this;
 };
