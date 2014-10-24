@@ -3,44 +3,52 @@
         <!-- <button id="show-greeting">Toggle Greeting</button> -->
         <!-- <div id="greeting">Hello there!</div> -->
         {{ mspLogger}}
-        <div id="two-js-container"></div>
+        <div id="two-js-container">
+          <div id="msp">foo bar baz bing</div>
+        </div>
         <script type="text/javascript">
           $(function() {
             // geometry
             var info = new AVUgenOne();
-
-            var rect = two.makeRectangle(two.width / 2, two.height / 2, 20, 20);
-            rect.noStroke().fill = getRandomColor();
+            var buy = new AVUgenTwo();
 
             // Update the renderer in order to generate corresponding DOM Elements.
             two.update();
 
             // Animation Loop.
             info.toggleStart();
-            two.bind('update', animate).play();  // Finally, start the animation
+            buy.toggleStart();
+            two.bind('update', animate).play();
 
-            function animateX(frameCount) {
-                // dummy to switch off animation
-            }
-
-            function animate(frameCount, timeDelta) { 
+            function animate(frameCount, timeDelta) {
                 // console.log(frameCount+" : "+timeDelta);
                 TWEEN.update();
-                // info.update(frameCount, timeDelta);
+                info.update(frameCount, timeDelta);
+                buy.update(frameCount, timeDelta);
             }
 
             // Bindings
-            $(rect._renderer.elem)
-              .css('cursor', 'pointer')
-              .click(function(e) {
-                rect.fill = getRandomColor();
-              });
-
             $(info.hotspot._renderer.elem)
               .css('cursor', 'pointer')
               .click(function(e) {
-                info.hotspot.fill = getRandomColor();
-                });
+                info.animate = false
+                // info.hotspot.fill = getRandomColor();
+                var driver = buy.minimize();
+                driver.chain(info.fullscreen());
+                driver.start()
+                console.log($(this));
+                $("#msp").offset($(this).offset());
+              });
+
+            $(buy.hotspot._renderer.elem)
+              .css('cursor', 'pointer')
+              .click(function(e) {
+                info.animate = false
+                // info.hotspot.fill = getRandomColor();
+                var driver = buy.fullscreen();
+                driver.chain(info.minimize());
+                driver.start()
+              });
 
             // two.bind('update', function(frameCount, timeDelta) {
             //   info.group.scale += 0.05

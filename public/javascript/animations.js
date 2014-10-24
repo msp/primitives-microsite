@@ -4,7 +4,7 @@ var animations = {
       var factor = 1500;
       self.x = 100;
       self.y = 100;
-      self.duration = factor/2;
+      self.duration = 1500;
       self.durationDivisor = 1;
       self.delay = 0;
       self.easing = TWEEN.Easing.Elastic.InOut;
@@ -18,8 +18,8 @@ var animations = {
 
       this.start =  function() {
         // self.sound = new Sound(self.soundFile, self.tweens[0].start());
-        self.tweens[0].start()
         console.log("Starting animation..")
+        self.begin().start()
         self.running = true;
         return this;
       }
