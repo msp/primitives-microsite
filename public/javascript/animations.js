@@ -4,21 +4,23 @@ var animations = {
       var factor = 1500;
       self.x = 100;
       self.y = 100;
-      self.duration = 1500;
+      self.duration = 1000;
       self.durationDivisor = 1;
       self.delay = 0;
-      self.easing = TWEEN.Easing.Elastic.InOut;
-      // self.easing = TWEEN.Easing.Linear.None;
+      // self.easing = TWEEN.Easing.Elastic.InOut;
+      self.easing = TWEEN.Easing.Linear.None;
       self.tweens = [];
       self.group = {};
       self.soundFile = './data/audio/clips/bass.ogg';
       self.playCount = 0;
       self.hotspot = {};
       self.running = false;
+      self.minimizedState = false;
+      self.fullscreenState = false;
 
       this.start =  function() {
         // self.sound = new Sound(self.soundFile, self.tweens[0].start());
-        console.log("Starting animation..")
+        // console.log("Starting animation..")
         self.begin().start()
         self.running = true;
         return this;
@@ -33,7 +35,6 @@ var animations = {
       }
 
       this.toggleStart = function() {
-        console.log(self.running);
         self.running == true ? self.stop() : self.start();
       }
 

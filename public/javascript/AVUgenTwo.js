@@ -8,7 +8,7 @@
 
     self.x = two.width - 200;
     self.y = two.height/3
-    self.delay = 100;
+    self.delay = 500;
     self.animate = false;
 
     drawGeometry();
@@ -47,7 +47,7 @@ AVUgenTwo.prototype.update = function(frameCount, timeDelta) {
 };
 
 AVUgenTwo.prototype.begin = function() {
-  console.log("start");
+  console.log("AVUgenTwo begin");
 
   var self = this;
 
@@ -67,7 +67,7 @@ AVUgenTwo.prototype.begin = function() {
 };
 
 AVUgenTwo.prototype.minimize = function() {
-  console.log("minimize");
+  console.log("AVUgenTwo minimize");
 
   var self = this;
 
@@ -75,19 +75,22 @@ AVUgenTwo.prototype.minimize = function() {
   var t1TargetScale = {scale: 0.1}
 
   var t = new TWEEN.Tween(t1Scale)
-        .to(t1TargetScale, self.duration)
+        .to(t1TargetScale, 500)
         .delay(self.delay)
         .easing(self.easing)
         .onUpdate(function(t) {
           self.hotspot.scale = t1Scale.scale;
         })
-        .onComplete(function() {})
+        .onComplete(function() {
+          self.minimizedState = true;
+          self.fullscreenState = false;
+        })
 
   return t;
 };
 
 AVUgenTwo.prototype.fullscreen = function() {
-  console.log("fullscreen");
+  console.log("AVUgenTwo fullscreen");
 
   var self = this;
 
@@ -101,7 +104,15 @@ AVUgenTwo.prototype.fullscreen = function() {
         .onUpdate(function(t) {
           self.hotspot.scale = t1Scale.scale;
         })
-        .onComplete(function() {})
+        .onComplete(function() {
+          $('.buy.modal')
+            .modal('show')
+            .modal('setting', 'closable', false);
+
+          self.minimizedState = false;
+          self.fullscreenState = true;
+
+        })
 
   return t;
 };

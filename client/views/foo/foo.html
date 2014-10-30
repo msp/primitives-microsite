@@ -4,7 +4,42 @@
         <!-- <div id="greeting">Hello there!</div> -->
         {{ mspLogger}}
         <div id="two-js-container">
-          <div id="msp">foo bar baz bing</div>
+        </div>
+        <!-- info modal -->
+        <div class="ui red info modal">
+          <i class="close icon"></i>
+          <div class="header">
+            Primitives 
+          </div>
+          <div class="content">
+            <div class="left">
+              Yada yada Content can appear on left
+            </div>
+            <div class="right">
+              Content can appear on right
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui button">OK</div>
+          </div>
+        </div>
+        <!-- buy modal -->
+        <div class="ui buy modal">
+          <i class="close icon"></i>
+          <div class="header">
+            Buy now from Broken20
+          </div>
+          <div class="content">
+            <div class="left">
+              Yada yada Content can appear on left
+            </div>
+            <div class="right">
+              Content can appear on right
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui button">OK</div>
+          </div>
         </div>
         <script type="text/javascript">
           $(function() {
@@ -27,17 +62,23 @@
                 buy.update(frameCount, timeDelta);
             }
 
+            function mspTest() {
+              info.minimize();
+              buy.minimize();
+            }
+
             // Bindings
             $(info.hotspot._renderer.elem)
               .css('cursor', 'pointer')
               .click(function(e) {
                 info.animate = false
                 // info.hotspot.fill = getRandomColor();
-                var driver = buy.minimize();
-                driver.chain(info.fullscreen());
-                driver.start()
-                console.log($(this));
-                $("#msp").offset($(this).offset());
+                if (!info.fullscreenState) {
+                  var driver = buy.minimize();
+                  driver.chain(info.fullscreen(mspTest));
+                  driver.start()
+                  console.log($(this));
+                }
               });
 
             $(buy.hotspot._renderer.elem)
@@ -45,9 +86,11 @@
               .click(function(e) {
                 info.animate = false
                 // info.hotspot.fill = getRandomColor();
-                var driver = buy.fullscreen();
-                driver.chain(info.minimize());
-                driver.start()
+                if (!buy.fullscreenState) {
+                  var driver = buy.fullscreen();
+                  driver.chain(info.minimize());
+                  driver.start()
+                }
               });
 
             // two.bind('update', function(frameCount, timeDelta) {
