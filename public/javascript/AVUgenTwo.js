@@ -106,8 +106,13 @@ AVUgenTwo.prototype.fullscreen = function() {
         })
         .onComplete(function() {
           $('.buy.modal')
-            .modal('show')
-            .modal('setting', 'closable', false);
+            .modal('setting', {
+              closable  : false,
+              transition  : "vertical flip",
+              onHidden : function() {
+              }
+            })
+            .modal('show');
 
           self.minimizedState = false;
           self.fullscreenState = true;

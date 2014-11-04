@@ -70,7 +70,7 @@ AVUgenOne.prototype.minimize = function() {
 
   var self = this;
 
-  var t1Scale = {scale: 0.9}
+  var t1Scale = {scale: 0.4}
   var t1TargetScale = {scale: 0.1}
 
   var t = new TWEEN.Tween(t1Scale)

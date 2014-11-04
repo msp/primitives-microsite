@@ -87,8 +87,8 @@
                 info.animate = false
                 // info.hotspot.fill = getRandomColor();
                 if (!buy.fullscreenState) {
-                  var driver = buy.fullscreen();
-                  driver.chain(info.minimize());
+                  var driver = info.minimize();
+                  driver.chain(buy.fullscreen());
                   driver.start()
                 }
               });
