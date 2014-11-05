@@ -2,7 +2,6 @@
     <div style={{bgcolor}}>
         <!-- <button id="show-greeting">Toggle Greeting</button> -->
         <!-- <div id="greeting">Hello there!</div> -->
-        {{ mspLogger}}
         <div id="two-js-container">
         </div>
         <!-- info modal -->
@@ -20,70 +19,5 @@
             <div class="ui button">OK</div>
           </div>
         </div>
-
-        <script type="text/javascript">
-          $(function() {
-            // geometry
-            var info = new AVUgenOne();
-            var buy = new AVUgenTwo();
-
-            // Update the renderer in order to generate corresponding DOM Elements.
-            two.update();
-
-            // Animation Loop.
-            info.toggleStart();
-            buy.toggleStart();
-            two.bind('update', animate).play();
-
-            function animate(frameCount, timeDelta) {
-                // console.log(frameCount+" : "+timeDelta);
-                TWEEN.update();
-                info.update(frameCount, timeDelta);
-                buy.update(frameCount, timeDelta);
-            }
-
-            function mspTest() {
-              info.minimize();
-              buy.minimize();
-            }
-
-            // Bindings
-            $(info.hotspot._renderer.elem)
-              .css('cursor', 'pointer')
-              .click(function(e) {
-                info.animate = false
-                // info.hotspot.fill = getRandomColor();
-                if (!info.fullscreenState) {
-                  var driver = buy.minimize();
-                  driver.chain(info.fullscreen(mspTest));
-                  driver.start()
-                  console.log($(this));
-                }
-              });
-
-            $(buy.hotspot._renderer.elem)
-              .css('cursor', 'pointer')
-              .click(function(e) {
-                info.animate = false
-                // info.hotspot.fill = getRandomColor();
-                if (!buy.fullscreenState) {
-                  var driver = info.minimize();
-                  driver.chain(buy.fullscreen());
-                  driver.start()
-                }
-              });
-
-            // two.bind('update', function(frameCount, timeDelta) {
-            //   info.group.scale += 0.05
-            // });
-            function getRandomColor() {
-                return 'rgb('
-                  + Math.floor(Math.random() * 255) + ','
-                  + Math.floor(Math.random() * 255) + ','
-                  + Math.floor(Math.random() * 255) + ')';
-            }
-
-          });
-        </script>
     </div>
 </template>
