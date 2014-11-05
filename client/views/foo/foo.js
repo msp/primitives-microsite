@@ -15,63 +15,95 @@ Template['foo'].events({
 
 // JavaScript
 if (Meteor.isClient) {
-  Template.foo.bgcolor = function () {
-    return "background-color: " + Session.get("bgcolor") +";";
-  };
-
   Template.foo.rendered = function () {
-    // $("#show-greeting").on("click", function() {
-    //   $("#greeting").toggle();
-    // });
-
     // geometry
-    var info = new AVUgenOne();
-    var buy = new AVUgenTwo();
+    var $info, $buy;
 
-    // Update the renderer in order to generate corresponding DOM Elements.
-    two.update();
+    // two.js
+    initializeScene();
+    $two.bind('update', animationLoop).play();
+    watchForWindowResize();
 
-    // Animation Loop.
-    info.toggleStart();
-    buy.toggleStart();
-    two.bind('update', animate).play();
+    // utils
+    function initializeScene() {
+      $info = new AVUgenOne();
+      $buy = new AVUgenTwo();
 
-    function animate(frameCount, timeDelta) {
-        // console.log(frameCount+" : "+timeDelta);
-        TWEEN.update();
-        info.update(frameCount, timeDelta);
-        buy.update(frameCount, timeDelta);
+      console.log("$two renderer: ");
+      console.log($two.renderer);
+      console.log("$two w: "+$two.width+" height: "+$two.height);
+
+      $two.renderer.setSize($window.width(), $window.height());
+      $two.width = $window.width();
+      $two.height = $window.height();
+
+      // Update the renderer in order to generate corresponding DOM Elements.
+      $two.update();
+
+      $info.toggleStart();
+      $buy.toggleStart();
+
+      bindEventHandlers($info, $buy);
     }
 
-    // Bindings
-    $(info.hotspot._renderer.elem)
-      .css('cursor', 'pointer')
-      .click(function(e) {
-        info.animate = false
-        // info.hotspot.fill = getRandomColor();
-        if (!info.fullscreenState) {
-          var driver = buy.minimize();
-          driver.chain(info.fullscreen());
-          driver.start()
-          console.log($(this));
-        }
-      });
+    function animationLoop(frameCount, timeDelta) {
+        // console.log(frameCount+" : "+timeDelta);
+        console.log("");
+        TWEEN.update();
+        $info.update(frameCount, timeDelta);
+        $buy.update(frameCount, timeDelta);
+    }
 
-    $(buy.hotspot._renderer.elem)
-      .css('cursor', 'pointer')
-      .click(function(e) {
-        info.animate = false
-        // info.hotspot.fill = getRandomColor();
-        if (!buy.fullscreenState) {
-          var driver = info.minimize();
-          driver.chain(buy.fullscreen());
-          driver.start()
-        }
-      });
+    function watchForWindowResize() {
+      $window
+        .bind('resize', function() {
+          console.log("WINDOW RESIZE w: "+$window.width()+" height: "+$window.height());
 
-    // two.bind('update', function(frameCount, timeDelta) {
-    //   info.group.scale += 0.05
-    // });
+          if (!$two) {
+            return;
+          }
+
+          $two.clear();
+
+          initializeScene();
+        });
+    }
+
+    function bindEventHandlers(info, buy) {
+      $(info.hotspot._renderer.elem)
+        .css('cursor', 'pointer')
+        .click(function(e) {
+          info.animate = false
+          // info.hotspot.fill = getRandomColor();
+          if (!info.fullscreenState) {
+            var driver = buy.minimize();
+            driver.chain(info.fullscreen());
+            driver.start()
+          }
+        });
+
+      $(info.hotspot._renderer.elem)
+        .css('cursor', 'pointer')
+        .hover(info.hoverOn, info.hoverOff);
+
+      $(buy.hotspot._renderer.elem)
+        .css('cursor', 'pointer')
+        .click(function(e) {
+          info.animate = false
+          // info.hotspot.fill = getRandomColor();
+          if (!buy.fullscreenState) {
+            var driver = info.minimize();
+            driver.chain(buy.fullscreen());
+            driver.start()
+          }
+        });
+
+      $(buy.hotspot._renderer.elem)
+        .css('cursor', 'pointer')
+        .hover(buy.hoverOn, buy.hoverOff);
+
+    }
+
     function getRandomColor() {
         return 'rgb('
           + Math.floor(Math.random() * 255) + ','

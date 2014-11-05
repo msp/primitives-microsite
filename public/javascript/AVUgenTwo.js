@@ -4,23 +4,24 @@
     var self = this;
 
     // Geometry
-    var cWidth = two.width;
+    var cWidth = $two.width;
 
-    self.x = two.width - 200;
-    self.y = two.height/3
+    self.x = $two.width - $two.width/5;
+    self.y = $two.height/3
     self.delay = 500;
-    self.animate = false;
+
+    self.fill = "red";
 
     drawGeometry();
 
     // Utils
     function drawGeometry() {
-      var circle = two.makeCircle(self.x, self.y, cWidth);
-      circle.fill = 'red';
-      circle.stroke = 'orangered';
-      circle.linewidth = 5;
-      circle.scale = 0.1;
-      circle.opacity = 0.75;
+      var circle = $two.makeCircle(self.x, self.y, cWidth);
+      circle.fill = self.fill;
+      circle.stroke = self.stroke;
+      circle.linewidth = self.linewidth;
+      circle.scale = self.scale;
+      circle.opacity = self.opacity;
 
       self.hotspot = circle;
     }
@@ -34,22 +35,11 @@
 })();
 
 // Animation
-// self.tweens[0].chain(self.tweens[1]);
-// self.tweens[1].chain(self.tweens[0]);
-AVUgenTwo.prototype.update = function(frameCount, timeDelta) {
-  if (this.animate) {
-    if (frameCount % 3 == 0) {
-        this.hotspot.fill = "black";
-    } else {
-        this.hotspot.fill = "red";
-    }
-  }
-};
-
 AVUgenTwo.prototype.begin = function() {
   console.log("AVUgenTwo begin");
 
   var self = this;
+  self.animate = false;
 
   var t1Scale = {scale: 0.1}
   var t1TargetScale = {scale: 0.4}
@@ -61,7 +51,9 @@ AVUgenTwo.prototype.begin = function() {
           .onUpdate(function(t) {
             self.hotspot.scale = t1Scale.scale;
           })
-          .onComplete(function() {})
+          .onComplete(function() {
+            self.animate = true;
+          })
 
   return t;
 };

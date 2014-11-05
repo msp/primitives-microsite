@@ -18,6 +18,13 @@ var animations = {
       self.minimizedState = false;
       self.fullscreenState = false;
 
+      self.fill = "red";
+      self.stroke = "orangered";
+      self.linewidth = 5;
+      self.scale = 0.1;
+      self.opacity = 0.75;
+
+
       this.start =  function() {
         // self.sound = new Sound(self.soundFile, self.tweens[0].start());
         // console.log("Starting animation..")
@@ -47,8 +54,28 @@ var animations = {
         return Math.floor((Math.random() * max) + 1);
       }
 
-      this.randomY = function() {
+      this.randomY = function() {}
 
+      this.hoverOn = function() {
+        self.animate = false;
+        self.hotspot.fill = self.fill;
+      }
+
+      this.hoverOff = function() {
+        if (!self.fullscreenState) {
+          self.animate = true;
+        }
+      }
+
+      this.update = function(frameCount, timeDelta) {
+        // this.hotspot.width = $two.width;
+        if (this.animate) {
+          if (frameCount % 5 == 0) {
+              this.hotspot.fill = "black";
+          } else {
+              this.hotspot.fill = this.fill;
+          }
+        }
       }
     }
 };
