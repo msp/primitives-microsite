@@ -6,41 +6,21 @@
         <div id="two-js-container">
         </div>
         <!-- info modal -->
-        <div class="ui red info modal">
+        <div class="ui modal">
           <i class="close icon"></i>
           <div class="header">
-            Primitives 
+            {{ modalTitle }}
           </div>
           <div class="content">
-            <div class="left">
-              Yada yada Content can appear on left
-            </div>
             <div class="right">
-              Content can appear on right
+              {{ modalBody }}
             </div>
           </div>
           <div class="actions">
             <div class="ui button">OK</div>
           </div>
         </div>
-        <!-- buy modal -->
-        <div class="ui buy modal">
-          <i class="close icon"></i>
-          <div class="header">
-            Buy now from Broken20
-          </div>
-          <div class="content">
-            <div class="left">
-              Yada yada Content can appear on left
-            </div>
-            <div class="right">
-              Content can appear on right
-            </div>
-          </div>
-          <div class="actions">
-            <div class="ui button">OK</div>
-          </div>
-        </div>
+
         <script type="text/javascript">
           $(function() {
             // geometry

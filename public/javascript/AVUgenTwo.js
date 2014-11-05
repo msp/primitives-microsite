@@ -105,7 +105,10 @@ AVUgenTwo.prototype.fullscreen = function() {
           self.hotspot.scale = t1Scale.scale;
         })
         .onComplete(function() {
-          $('.buy.modal')
+
+          Session.set("modal", self.modalData());
+
+          $('.modal')
             .modal('setting', {
               closable  : false,
               transition  : "vertical flip",
@@ -121,4 +124,8 @@ AVUgenTwo.prototype.fullscreen = function() {
 
   return t;
 };
+
+AVUgenTwo.prototype.modalData = function() {
+  return {title: "buy title", body: "buy body", footer: "buy footer"}
+}
 

@@ -2,6 +2,15 @@ Template['foo'].helpers({
     mspLogger: function () {
         console.log("Oh HAI !");
     }
+    ,modalTitle: function () {
+      return Session.get("modal").title;
+    }
+    ,modalBody: function () {
+      return Session.get("modal").body;
+    }
+    ,modalFooter: function () {
+      return Session.get("modal").footer;
+    }
 });
 
 Template['foo'].events({

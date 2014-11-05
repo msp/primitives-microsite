@@ -104,7 +104,10 @@ AVUgenOne.prototype.fullscreen = function() {
         self.hotspot.scale = t1Scale.scale;
       })
       .onComplete(function() {
-        $('.info.modal')
+
+        Session.set("modal", self.modalData());
+
+        $('.modal')
           .modal('setting', {
             closable  : false,
             transition  : "vertical flip",
@@ -119,4 +122,9 @@ AVUgenOne.prototype.fullscreen = function() {
 
   return t;
 };
+
+AVUgenOne.prototype.modalData = function() {
+  return {title: "info title", body: "info body", footer: "info footer"}
+}
+
 
