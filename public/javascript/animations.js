@@ -15,8 +15,6 @@ var animations = {
       self.playCount = 0;
       self.hotspot = {};
       self.running = false;
-      self.minimizedState = false;
-      self.fullscreenState = false;
 
       self.fill = "red";
       self.stroke = "orangered";

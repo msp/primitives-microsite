@@ -39,8 +39,8 @@ AVUgenOne.prototype.begin = function() {
 
   var self = this;
 
-  var t1Scale = {scale: 0.1}
-  var t1TargetScale = {scale: 0.4}
+  var t1Scale = {scale: self.scale};
+  var t1TargetScale = {scale: 0.4};
 
   var t = new TWEEN.Tween(t1Scale)
           .to(t1TargetScale, self.duration)
@@ -51,6 +51,7 @@ AVUgenOne.prototype.begin = function() {
           })
           .onComplete(function() {
             self.animate = true;
+            self.scale = self.hotspot.scale;
           })
 
   return t;
@@ -62,19 +63,18 @@ AVUgenOne.prototype.minimize = function() {
   var self = this;
   self.animate = false;
 
-  var t1Scale = {scale: 0.4}
-  var t1TargetScale = {scale: 0.1}
+  var t1Scale = {scale: self.scale};
+  var t1TargetScale = {scale: 0.1};
 
   var t = new TWEEN.Tween(t1Scale)
         .to(t1TargetScale, 500)
-        .delay(self.delay)
+        .delay(0)
         .easing(self.easing)
         .onUpdate(function(t) {
           self.hotspot.scale = t1Scale.scale;
         })
         .onComplete(function() {
-          self.minimizedState = true;
-          self.fullscreenState = false;
+          self.scale = self.hotspot.scale;
         })
 
   return t;
@@ -86,12 +86,12 @@ AVUgenOne.prototype.fullscreen = function() {
   var self = this;
   self.animate = false;
 
-  var t1Scale = {scale: 0.4}
-  var t1TargetScale = {scale: 0.6}
+  var t1Scale = {scale: self.scale};
+  var t1TargetScale = {scale: 0.6};
 
   var t = new TWEEN.Tween(t1Scale)
       .to(t1TargetScale, self.duration)
-      .delay(self.delay)
+      .delay(0)
       .easing(self.easing)
       .onUpdate(function(t) {
         self.hotspot.scale = t1Scale.scale;
@@ -109,8 +109,7 @@ AVUgenOne.prototype.fullscreen = function() {
           })
           .modal('show');
 
-          self.minimizedState = false;
-          self.fullscreenState = true;
+          self.scale = self.hotspot.scale;
       });
 
   return t;

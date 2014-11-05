@@ -28,6 +28,7 @@ if (Meteor.isClient) {
     function initializeScene() {
       $info = new AVUgenOne();
       $buy = new AVUgenTwo();
+      $watch = new AVUgenThree();
 
       console.log("$two renderer: ");
       console.log($two.renderer);
@@ -42,8 +43,9 @@ if (Meteor.isClient) {
 
       $info.toggleStart();
       $buy.toggleStart();
+      $watch.toggleStart();
 
-      bindEventHandlers($info, $buy);
+      bindEventHandlers($info, $buy, $watch);
     }
 
     function animationLoop(frameCount, timeDelta) {
@@ -52,34 +54,27 @@ if (Meteor.isClient) {
         TWEEN.update();
         $info.update(frameCount, timeDelta);
         $buy.update(frameCount, timeDelta);
+        $watch.update(frameCount, timeDelta);
     }
 
     function watchForWindowResize() {
       $window
         .bind('resize', function() {
           console.log("WINDOW RESIZE w: "+$window.width()+" height: "+$window.height());
-
-          if (!$two) {
-            return;
-          }
-
           $two.clear();
 
           initializeScene();
         });
     }
 
-    function bindEventHandlers(info, buy) {
+    function bindEventHandlers(info, buy, watch) {
       $(info.hotspot._renderer.elem)
         .css('cursor', 'pointer')
         .click(function(e) {
-          info.animate = false
-          // info.hotspot.fill = getRandomColor();
-          if (!info.fullscreenState) {
-            var driver = buy.minimize();
-            driver.chain(info.fullscreen());
-            driver.start()
-          }
+          info.animate = false;
+          var driver = buy.minimize();
+          driver.chain(watch.minimize().chain(info.fullscreen()));
+          driver.start()
         });
 
       $(info.hotspot._renderer.elem)
@@ -89,18 +84,28 @@ if (Meteor.isClient) {
       $(buy.hotspot._renderer.elem)
         .css('cursor', 'pointer')
         .click(function(e) {
-          info.animate = false
-          // info.hotspot.fill = getRandomColor();
-          if (!buy.fullscreenState) {
-            var driver = info.minimize();
-            driver.chain(buy.fullscreen());
-            driver.start()
-          }
+          buy.animate = false;
+          var driver = info.minimize();
+          driver.chain(watch.minimize().chain(buy.fullscreen()));
+          driver.start()
         });
 
       $(buy.hotspot._renderer.elem)
         .css('cursor', 'pointer')
         .hover(buy.hoverOn, buy.hoverOff);
+
+      $(watch.hotspot._renderer.elem)
+        .css('cursor', 'pointer')
+        .click(function(e) {
+          watch.animate = false;
+          var driver = info.minimize();
+          driver.chain(buy.minimize().chain(watch.fullscreen()));
+          driver.start()
+        });
+
+      $(watch.hotspot._renderer.elem)
+        .css('cursor', 'pointer')
+        .hover(watch.hoverOn, watch.hoverOff);
 
     }
 
@@ -110,6 +115,5 @@ if (Meteor.isClient) {
           + Math.floor(Math.random() * 255) + ','
           + Math.floor(Math.random() * 255) + ')';
     }
-
   };
 }

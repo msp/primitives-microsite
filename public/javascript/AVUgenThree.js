@@ -1,4 +1,4 @@
-  var AVUgenTwo = function() {
+  var AVUgenThree = function() {
     // Binding
     animations.Animation.apply(this, arguments);
     var self = this;
@@ -6,11 +6,11 @@
     // Geometry
     var cWidth = $two.width;
 
-    self.x = $two.width - $two.width/5;
-    self.y = $two.height/3
-    self.delay = 500;
+    self.x = $two.width - $two.width/2;
+    self.y = $two.height
+    self.delay = 1000;
 
-    self.fill = "red";
+    self.fill = "lightblue";
 
     drawGeometry();
 
@@ -31,12 +31,12 @@
 
 
 (function() {
-  _.extend(AVUgenTwo.prototype, animations.Animation.prototype);
+  _.extend(AVUgenThree.prototype, animations.Animation.prototype);
 })();
 
 // Animation
-AVUgenTwo.prototype.begin = function() {
-  console.log("AVUgenTwo begin");
+AVUgenThree.prototype.begin = function() {
+  console.log("AVUgenThree begin");
 
   var self = this;
   self.animate = false;
@@ -59,8 +59,8 @@ AVUgenTwo.prototype.begin = function() {
   return t;
 };
 
-AVUgenTwo.prototype.minimize = function() {
-  console.log("AVUgenTwo minimize");
+AVUgenThree.prototype.minimize = function() {
+  console.log("AVUgenThree minimize");
 
   var self = this;
 
@@ -81,8 +81,8 @@ AVUgenTwo.prototype.minimize = function() {
   return t;
 };
 
-AVUgenTwo.prototype.fullscreen = function() {
-  console.log("AVUgenTwo fullscreen");
+AVUgenThree.prototype.fullscreen = function() {
+  console.log("AVUgenThree fullscreen");
 
   var self = this;
 
@@ -116,7 +116,7 @@ AVUgenTwo.prototype.fullscreen = function() {
   return t;
 };
 
-AVUgenTwo.prototype.modalData = function() {
-  return {title: "buy title", body: "buy body", footer: "buy footer"}
+AVUgenThree.prototype.modalData = function() {
+  return {title: "watch title", body: "watch body", footer: "watch footer"}
 }
 
