@@ -121,12 +121,12 @@ AVUgenThree.prototype.fullscreen = function() {
 
 AVUgenThree.prototype.modalData = function() {
   body = "<i class='quote left icon'></i>";
-  body += "<p>Our world, ultimately, is reducible to parameters – geometry, brightness, loudness.</p>";
-  body += "<p>But just as a storm is more than the combined force of water and electricity, Primitives calls to mind not just the basic physics of primal forms, but also the spectator’s inevitably subjective perception of these.</p>";
-  body += "<p>Spatial’s custom-built software controls invite chance. Playing permutation, shapes and hues not only expand and contract across space, but also through time. 2D becomes 3D as the dynamic of control and abandon - much like the earth’s own magnetism – shimmers and fluctuates. Primitives reminds us that through the tension between coded energies and human agency can be perceived a space of becoming.</p>";
+  body += "<p class=\"danni\">Our world, ultimately, is reducible to parameters – geometry, brightness, loudness.</p>";
+  body += "<p class=\"danni\">But just as a storm is more than the combined force of water and electricity, Primitives calls to mind not just the basic physics of primal forms, but also the spectator’s inevitably subjective perception of these.</p>";
+  body += "<p class=\"danni\">Spatial’s custom-built software controls invite chance. Playing permutation, shapes and hues not only expand and contract across space, but also through time. 2D becomes 3D as the dynamic of control and abandon - much like the earth’s own magnetism – shimmers and fluctuates. Primitives reminds us that through the tension between coded energies and human agency can be perceived a space of becoming.</p>";
   body += "<p>Danni Zuvela</p>";
 
-  body += "<p>'Primitives' was born when Spatial devised a performative installation of light and sound by coding his own software, exploring the OpenFrameworks platform. ";
+  body += "<div class=\"pr\"><p>'Primitives' was born when Spatial devised a performative installation of light and sound by coding his own software, exploring the OpenFrameworks platform. ";
   body += "Influenced by the likes of Sally Golding, Bruce McClure and Greg Pope, he sought to investigate a similar materiality of light, sound and space manifested via the digital domain, to ";
   body += "\"explore sonic and optical intensity articulated by simple geometric figures and extreme frequencies.\" He continues: \"Projected images drive a sensory assault, consumed by your eyes, then ears, and existing somewhere between perceptions.' Elsewhere in his manifesto he states that he’s 'interrogating hacked code for excruciating light' and that it 'brings a new realisation to the relationships between seeing sound and hearing colour.\"</p>";
 
@@ -137,7 +137,7 @@ AVUgenThree.prototype.modalData = function() {
 
   body += "<p>The Single Channel works are most revealing of the performance process and the underlying software. These screen recordings highlight each sequence as a composition of four AVUgens - base units combining visual representation and its effecting properties on the accompanying sonic component. Deliberately simple relationships, such as a polygon interacting with a sine wave, animate, coalesce and interplay to create an immersive sensory experience. </p>"
 
-  body += "<p>The Expanded section takes this technical setup and explores the relationship and geometry of light and sound inhabiting a performance space. Recorded live using various cameras and segmented into a number of short visual works, these films liberate the software from its digital domain to focus on the material aspects of the output within an architecture. Embracing the ensuing degradation of the stylised visual perfection into hacked light, the audio is freed to breathe deep within three dimensions, enjoying the implicit bit crushing and dithering that occurs as it’s captured through the camera’s built in microphones. </p>"
+  body += "<p>The Expanded section takes this technical setup and explores the relationship and geometry of light and sound inhabiting a performance space. Recorded live using various cameras and segmented into a number of short visual works, these films liberate the software from its digital domain to focus on the material aspects of the output within an architecture. Embracing the ensuing degradation of the stylised visual perfection into hacked light, the audio is freed to breathe deep within three dimensions, enjoying the implicit bit crushing and dithering that occurs as it’s captured through the camera’s built in microphones. </p></div>"
 
   return {title: "Primitives", body: body, footer: "info footer"}
 }

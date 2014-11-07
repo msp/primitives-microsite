@@ -9,13 +9,47 @@
    ------------------- */
 
 .ui.modal {
-    top: 15%;
+    top: 45%;
     left: 10%;
     margin-left: 0px;
     width: 80%;
 }
+
+.ui.modal .content {
+    display: block;
+    height: 700px;
+    overflow: auto;
+}
+
 .ui.dimmed.dimmable > .ui.animating.dimmer, .ui.dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
     opacity: 0.8;
+}
+
+.danni {
+    font-style: italic;
+}
+
+.pr {
+    margin-top: 50px;
+    font-size: smaller;
+}
+
+.fluid-video {
+    height: 0;
+    padding-bottom: 56.3%;
+    position: relative;
+}
+
+.fluid-video > iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#velocity-status-widget {
+    display: none;
 }
 
 

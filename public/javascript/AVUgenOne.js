@@ -117,7 +117,7 @@ AVUgenOne.prototype.fullscreen = function() {
 };
 
 AVUgenOne.prototype.modalData = function() {
-  var body = "<p>Welcome! You should have received a username/password when you purchsed the 12\" vinyl. Enter those in the 'sign in' option on the left to unlock access to the films online, src code and downloadable software.</p>";
+  var body = "<p>Welcome! You should have received a username/password when you purchsed the 12\" vinyl? Enter those in the 'sign in' option on the left to unlock access to the films online, src code and downloadable software.</p>";
   return {title: "Restricted!", body: body, footer: "watch footer"}
 }
 
