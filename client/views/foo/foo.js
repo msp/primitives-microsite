@@ -16,14 +16,6 @@ Template['foo'].events({
 // JavaScript
 if (Meteor.isClient) {
 
-  Accounts.config({
-    forbidClientAccountCreation : true
-  });
-
-  Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_ONLY'
-  });
-
   Template.foo.rendered = function () {
     // geometry
     var $info, $buy;

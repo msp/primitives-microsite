@@ -4,7 +4,7 @@ var fooController = RouteController.extend({
 
 Router.map(function () {
   this.route('fooRoute', {
-    path :  '/foo',
+    path :  '/',
     controller :  fooController
   });
 });
