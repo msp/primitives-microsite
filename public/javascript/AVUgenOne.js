@@ -100,7 +100,7 @@ AVUgenOne.prototype.fullscreen = function() {
 
         Session.set("modal", self.modalData());
 
-        $('.modal')
+        $('.modal.login')
           .modal('setting', {
             closable  : false,
             transition  : "vertical flip",
@@ -117,7 +117,8 @@ AVUgenOne.prototype.fullscreen = function() {
 };
 
 AVUgenOne.prototype.modalData = function() {
-  return {title: "watch title", body: "watch body", footer: "watch footer"}
+  var body = "<p>Welcome! You should have received a username/password when you purchsed the 12\" vinyl. Enter those in the 'sign in' option on the left to unlock access to the films online, src code and downloadable software.</p>";
+  return {title: "Restricted!", body: body, footer: "watch footer"}
 }
 
 

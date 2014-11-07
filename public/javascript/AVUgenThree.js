@@ -100,7 +100,7 @@ AVUgenThree.prototype.fullscreen = function() {
 
           Session.set("modal", self.modalData());
 
-          $('.modal')
+          $('.modal.main')
             .modal('setting', {
               closable  : false
               ,transition  : "vertical flip"
