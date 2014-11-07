@@ -1,0 +1,11 @@
+h1. Primitives Microsite for Broken20 release
+
+"http://primitives.infrasonics.net":http://primitives.infrasonics.net
+
+h2. Development stack
+
+* App Framework: "Meteor":http://meteor.com
+* Boilerplate: "http://matteodem.github.io/meteor-boilerplate":http://matteodem.github.io/meteor-boilerplate
+* Drawing API: "Two.js":http://jonobr1.github.io/two.js/
+* Animation: "Tween.js":https://github.com/sole/tween.js
+* Front-end Framework: "Semantic UI":http://semantic-ui.com
