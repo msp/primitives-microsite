@@ -118,6 +118,8 @@ AVUgenTwo.prototype.fullscreen = function() {
 };
 
 AVUgenTwo.prototype.modalData = function() {
-  return {title: "buy title", body: "buy body", footer: "buy footer"}
+  var body = "<iframe src=\"//player.vimeo.com/video/104535219\" width=\"960\" height=\"540\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+  body += "<p>Special edition 12\" vinyl, slimline DVD and 3\" data cd package available direct from the <a href=\"http://store.broken20.com/album/spatial-primitives\">Broken20 Store</a></p>";
+  return {title: "Buy Primitives", body: body, footer: "buy footer"}
 }
 

@@ -102,10 +102,12 @@ AVUgenThree.prototype.fullscreen = function() {
 
           $('.modal')
             .modal('setting', {
-              closable  : false,
-              transition  : "vertical flip",
-              onHide : function() {
+              closable  : false
+              ,transition  : "vertical flip"
+              ,onHide : function() {
                 self.minimize().start();
+              }
+              ,onVisible : function() {
               }
             })
             .modal('show');
@@ -118,7 +120,25 @@ AVUgenThree.prototype.fullscreen = function() {
 };
 
 AVUgenThree.prototype.modalData = function() {
-  body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tempor arcu, quis hendrerit nunc accumsan quis. In ut dolor metus, eget viverra odio. Quisque sed suscipit leo. Curabitur dictum magna ut turpis interdum a mollis nunc condimentum. Praesent leo est, hendreriteget condimentum sit amet, placerat adipiscing neque. Curabitur id metus tellus, sed semper odio. Phasellus id justo ante, vel bibendum eros. Nulla suscipit felis eget erat iaculis et aliquam turpis consequat. Nunc posuere mollis tellus sit amet dapibus. Praesent sagittis quam sit amet mauris venenatis in dignissim purus dapibus."
+  body = "<i class='quote left icon'></i>";
+  body += "<p>Our world, ultimately, is reducible to parameters – geometry, brightness, loudness.</p>";
+  body += "<p>But just as a storm is more than the combined force of water and electricity, Primitives calls to mind not just the basic physics of primal forms, but also the spectator’s inevitably subjective perception of these.</p>";
+  body += "<p>Spatial’s custom-built software controls invite chance. Playing permutation, shapes and hues not only expand and contract across space, but also through time. 2D becomes 3D as the dynamic of control and abandon - much like the earth’s own magnetism – shimmers and fluctuates. Primitives reminds us that through the tension between coded energies and human agency can be perceived a space of becoming.</p>";
+  body += "<p>Danni Zuvela</p>";
+
+  body += "<p>'Primitives' was born when Spatial devised a performative installation of light and sound by coding his own software, exploring the OpenFrameworks platform. ";
+  body += "Influenced by the likes of Sally Golding, Bruce McClure and Greg Pope, he sought to investigate a similar materiality of light, sound and space manifested via the digital domain, to ";
+  body += "\"explore sonic and optical intensity articulated by simple geometric figures and extreme frequencies.\" He continues: \"Projected images drive a sensory assault, consumed by your eyes, then ears, and existing somewhere between perceptions.' Elsewhere in his manifesto he states that he’s 'interrogating hacked code for excruciating light' and that it 'brings a new realisation to the relationships between seeing sound and hearing colour.\"</p>";
+
+  body += "<p>‘Primitives’ has made live appearances at Cafe OTO & Apiary Studios in London and Supernormal Festival in Oxfordshire building the piece to its current form via a variety of evolutionary configurations, developing from the initial single screen staging to an expanded setup that fully inhabits that performance space. ";
+  body += "The logical next step is to release it to the wider world in some shape – the work itself, Spatial’s software that created it and the underlying code to hack the project. But how does a producer and DJ release these related strands into a coherent package that envelops the project’s handmade, atavistic blossoming, both visual and aural? How could that blend with his prior output? And fundamentally, who would be mad enough to pull it all together? Step forward Broken20, the Glasgow label founded on \"an aesthetic, not a genre – releases concerned with decay, erosion, entropy, mistakes and errors, line noise and tape hiss, hum and buzz\". And as Broken20’s first foray into vinyl following a multi-format splurge of tapes, DVDs and custom made USB sticks it made sense to collaborate on a 12\" that was more than just a slab of wax. </p>";
+
+  body += "<p>So we have ‘Primitives’, a DVD containing short films of live A/V content alongside an executable version of the software and the source code plus a 12” record containing four commissioned interpretations by Spatial himself, Broken20’s TVO, Bass Clef and Sculpture aimed somewhat more at the dancefloor. The combination of media represent the totality of the ‘Primitives’ experience. The DVD contains a series of live, improvised audiovisual art works under two distinct sections: Single Channel & Expanded. </p>";
+
+  body += "<p>The Single Channel works are most revealing of the performance process and the underlying software. These screen recordings highlight each sequence as a composition of four AVUgens - base units combining visual representation and its effecting properties on the accompanying sonic component. Deliberately simple relationships, such as a polygon interacting with a sine wave, animate, coalesce and interplay to create an immersive sensory experience. </p>"
+
+  body += "<p>The Expanded section takes this technical setup and explores the relationship and geometry of light and sound inhabiting a performance space. Recorded live using various cameras and segmented into a number of short visual works, these films liberate the software from its digital domain to focus on the material aspects of the output within an architecture. Embracing the ensuing degradation of the stylised visual perfection into hacked light, the audio is freed to breathe deep within three dimensions, enjoying the implicit bit crushing and dithering that occurs as it’s captured through the camera’s built in microphones. </p>"
+
   return {title: "Primitives", body: body, footer: "info footer"}
 }
 
