@@ -17,8 +17,17 @@ Template['foo'].events({
 if (Meteor.isClient) {
 
   Template.foo.rendered = function () {
+    // globals
+    $window = $(window);
+    $two = new Two({
+      fullscreen: false
+      ,width: $window.width()
+      ,height: $window.height()
+      ,autostart: true
+    }).appendTo(document.getElementById("two-js-container"));
+
     // geometry
-    var $info, $buy;
+    var $info, $buy, $work;
 
     // two.js
     initializeScene();

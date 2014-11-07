@@ -3,17 +3,6 @@
         {{> yield region='header'}}
     </header>
     <div id="main">
-        <script type="text/javascript">
-            // globals
-            var $window = $(window);
-            var $two = new Two({
-              fullscreen: false
-              ,width: $window.width()
-              ,height: $window.height()
-              ,autostart: true
-            }).appendTo(document.getElementById("two-js-container"));
-
-        </script>
         {{> yield}}
         {{! Also a sidebar! }}
     </div>
