@@ -87,7 +87,7 @@ AVUgenTwo.prototype.fullscreen = function() {
   var self = this;
 
   var t1Scale = {scale: self.scale};
-  var t1TargetScale = {scale: 0.6};
+  var t1TargetScale = {scale: 1.0};
 
   var t = new TWEEN.Tween(t1Scale)
         .to(t1TargetScale, self.duration)
@@ -104,7 +104,8 @@ AVUgenTwo.prototype.fullscreen = function() {
             .modal('setting', {
               closable  : false,
               transition  : "vertical flip",
-              onHidden : function() {
+              onHide : function() {
+                self.minimize().start();
               }
             })
             .modal('show');

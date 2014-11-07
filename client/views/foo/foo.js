@@ -26,9 +26,9 @@ if (Meteor.isClient) {
 
     // utils
     function initializeScene() {
-      $info = new AVUgenOne();
+      $watch = new AVUgenOne();
       $buy = new AVUgenTwo();
-      $watch = new AVUgenThree();
+      $info = new AVUgenThree();
 
       console.log("$two renderer: ");
       console.log($two.renderer);

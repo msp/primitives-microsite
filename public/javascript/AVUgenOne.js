@@ -87,7 +87,7 @@ AVUgenOne.prototype.fullscreen = function() {
   self.animate = false;
 
   var t1Scale = {scale: self.scale};
-  var t1TargetScale = {scale: 0.6};
+  var t1TargetScale = {scale: 1.0};
 
   var t = new TWEEN.Tween(t1Scale)
       .to(t1TargetScale, self.duration)
@@ -104,7 +104,8 @@ AVUgenOne.prototype.fullscreen = function() {
           .modal('setting', {
             closable  : false,
             transition  : "vertical flip",
-            onHidden : function() {
+            onHide : function() {
+              self.minimize().start();
             }
           })
           .modal('show');
@@ -116,8 +117,7 @@ AVUgenOne.prototype.fullscreen = function() {
 };
 
 AVUgenOne.prototype.modalData = function() {
-  body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tempor arcu, quis hendrerit nunc accumsan quis. In ut dolor metus, eget viverra odio. Quisque sed suscipit leo. Curabitur dictum magna ut turpis interdum a mollis nunc condimentum. Praesent leo est, hendreriteget condimentum sit amet, placerat adipiscing neque. Curabitur id metus tellus, sed semper odio. Phasellus id justo ante, vel bibendum eros. Nulla suscipit felis eget erat iaculis et aliquam turpis consequat. Nunc posuere mollis tellus sit amet dapibus. Praesent sagittis quam sit amet mauris venenatis in dignissim purus dapibus."
-  return {title: "Primitives", body: body, footer: "info footer"}
+  return {title: "watch title", body: "watch body", footer: "watch footer"}
 }
 
 
