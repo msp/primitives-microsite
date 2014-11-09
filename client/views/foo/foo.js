@@ -74,6 +74,7 @@ if (Meteor.isClient) {
           $two.clear();
 
           initializeScene();
+          $info.resizeModal();
         });
     }
 

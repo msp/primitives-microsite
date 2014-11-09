@@ -75,5 +75,10 @@ var animations = {
           }
         }
       }
+
+      this.resizeModal = function () {
+        $(".ui.modal").animate({'margin-top': '10px', 'top': '10px'});
+        $(".ui.modal .content").animate({height: $(window).height() - 200});
+      }
     }
 };

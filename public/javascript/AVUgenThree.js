@@ -108,6 +108,7 @@ AVUgenThree.prototype.fullscreen = function() {
                 self.minimize().start();
               }
               ,onVisible : function() {
+                self.resizeModal();
               }
             })
             .modal('show');
