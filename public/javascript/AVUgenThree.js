@@ -11,6 +11,7 @@
     self.delay = 1000;
 
     self.fill = "lightblue";
+    self.animateTime = 150;
 
     drawGeometry();
 
@@ -63,6 +64,8 @@ AVUgenThree.prototype.minimize = function() {
   console.log("AVUgenThree minimize");
 
   var self = this;
+  self.animate = false;
+  self.hotspot.fill = self.fill;
 
   var t1Scale = {scale: self.scale};
   var t1TargetScale = {scale: 0.1};
@@ -81,7 +84,7 @@ AVUgenThree.prototype.minimize = function() {
   return t;
 };
 
-AVUgenThree.prototype.fullscreen = function() {
+AVUgenThree.prototype.fullscreen = function(callback) {
   console.log("AVUgenThree fullscreen");
 
   var self = this;
@@ -109,6 +112,7 @@ AVUgenThree.prototype.fullscreen = function() {
               }
               ,onVisible : function() {
                 self.resizeModal();
+                callback();
               }
             })
             .modal('show');
@@ -121,11 +125,11 @@ AVUgenThree.prototype.fullscreen = function() {
 };
 
 AVUgenThree.prototype.modalData = function() {
-  body = "<i class='quote left icon'></i>";
+  body = "";
   body += "<p class=\"danni\">Our world, ultimately, is reducible to parameters – geometry, brightness, loudness.</p>";
   body += "<p class=\"danni\">But just as a storm is more than the combined force of water and electricity, Primitives calls to mind not just the basic physics of primal forms, but also the spectator’s inevitably subjective perception of these.</p>";
   body += "<p class=\"danni\">Spatial’s custom-built software controls invite chance. Playing permutation, shapes and hues not only expand and contract across space, but also through time. 2D becomes 3D as the dynamic of control and abandon - much like the earth’s own magnetism – shimmers and fluctuates. Primitives reminds us that through the tension between coded energies and human agency can be perceived a space of becoming.</p>";
-  body += "<p>Danni Zuvela</p>";
+  body += "<p>Danni Zuvela, 2014</p>";
 
   body += "<div class=\"pr\"><p>'Primitives' was born when Spatial devised a performative installation of light and sound by coding his own software, exploring the OpenFrameworks platform. ";
   body += "Influenced by the likes of Sally Golding, Bruce McClure and Greg Pope, he sought to investigate a similar materiality of light, sound and space manifested via the digital domain, to ";

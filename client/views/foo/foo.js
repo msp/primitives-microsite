@@ -60,7 +60,7 @@ if (Meteor.isClient) {
 
     function animationLoop(frameCount, timeDelta) {
         // console.log(frameCount+" : "+timeDelta);
-        console.log("");
+        // console.log(""); at some point this made the animation smoother?!
         TWEEN.update();
         $info.update(frameCount, timeDelta);
         $buy.update(frameCount, timeDelta);
@@ -78,14 +78,61 @@ if (Meteor.isClient) {
         });
     }
 
+    function pauseAnimation() {
+      console.log("pauseAnimation");
+      $info.animate = false;
+      $buy.animate = false;
+      $watch.animate = false;
+
+    }
+
     function bindEventHandlers(info, buy, watch) {
+
+      // Util
+      function infoFullscreen() {
+        info.animate = false;
+        var driver = buy.minimize();
+        driver.chain(watch.minimize().chain(info.fullscreen(pauseAnimation)));
+        driver.start();
+        location.hash = "#info";
+      }
+
+      function buyFullscreen() {
+        buy.animate = false;
+        var driver = info.minimize();
+        driver.chain(watch.minimize().chain(buy.fullscreen(pauseAnimation)));
+        driver.start();
+        location.hash = "#buy";
+      }
+
+      function watchFullscreen() {
+        watch.animate = false;
+        var driver = info.minimize();
+        driver.chain(buy.minimize().chain(watch.fullscreen(pauseAnimation)));
+        driver.start();
+        location.hash = "#watch";
+      }
+
+      // URL triggers
+      function locationHashChanged() {
+          if (location.hash === "#info") {
+              infoFullscreen();
+          } else if (location.hash === "#buy") {
+              buyFullscreen();
+          } else if (location.hash === "#watch") {
+              watchFullscreen();
+          }
+      }
+
+      // watch
+      window.onhashchange = locationHashChanged;
+
+
+      // SVG hotspots
       $(info.hotspot._renderer.elem)
         .css('cursor', 'pointer')
         .click(function(e) {
-          info.animate = false;
-          var driver = buy.minimize();
-          driver.chain(watch.minimize().chain(info.fullscreen()));
-          driver.start()
+          infoFullscreen();
         });
 
       $(info.hotspot._renderer.elem)
@@ -95,10 +142,7 @@ if (Meteor.isClient) {
       $(buy.hotspot._renderer.elem)
         .css('cursor', 'pointer')
         .click(function(e) {
-          buy.animate = false;
-          var driver = info.minimize();
-          driver.chain(watch.minimize().chain(buy.fullscreen()));
-          driver.start()
+          buyFullscreen();
         });
 
       $(buy.hotspot._renderer.elem)
@@ -108,10 +152,7 @@ if (Meteor.isClient) {
       $(watch.hotspot._renderer.elem)
         .css('cursor', 'pointer')
         .click(function(e) {
-          watch.animate = false;
-          var driver = info.minimize();
-          driver.chain(buy.minimize().chain(watch.fullscreen()));
-          driver.start()
+          watchFullscreen();
         });
 
       $(watch.hotspot._renderer.elem)

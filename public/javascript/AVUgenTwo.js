@@ -11,6 +11,7 @@
     self.delay = 500;
 
     self.fill = "red";
+    self.animateTime = 280;
 
     drawGeometry();
 
@@ -63,6 +64,8 @@ AVUgenTwo.prototype.minimize = function() {
   console.log("AVUgenTwo minimize");
 
   var self = this;
+  self.animate = false;
+  self.hotspot.fill = self.fill;
 
   var t1Scale = {scale: self.scale};
   var t1TargetScale = {scale: 0.1};
@@ -81,7 +84,7 @@ AVUgenTwo.prototype.minimize = function() {
   return t;
 };
 
-AVUgenTwo.prototype.fullscreen = function() {
+AVUgenTwo.prototype.fullscreen = function(callback) {
   console.log("AVUgenTwo fullscreen");
 
   var self = this;
@@ -109,6 +112,7 @@ AVUgenTwo.prototype.fullscreen = function() {
               }
               ,onVisible : function() {
                 self.resizeModal();
+                callback();
               }
             })
             .modal('show');

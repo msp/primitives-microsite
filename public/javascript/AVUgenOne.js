@@ -10,6 +10,7 @@
     self.y = $two.height/3
 
     self.fill ='#FF8000';
+    self.stroke ='darkorange';
 
     drawGeometry();
 
@@ -62,6 +63,7 @@ AVUgenOne.prototype.minimize = function() {
 
   var self = this;
   self.animate = false;
+  self.hotspot.fill = self.fill;
 
   var t1Scale = {scale: self.scale};
   var t1TargetScale = {scale: 0.1};
@@ -80,7 +82,7 @@ AVUgenOne.prototype.minimize = function() {
   return t;
 };
 
-AVUgenOne.prototype.fullscreen = function() {
+AVUgenOne.prototype.fullscreen = function(callback) {
   console.log("AVUgenOne fullscreen");
 
   var self = this;
@@ -109,6 +111,7 @@ AVUgenOne.prototype.fullscreen = function() {
             }
             ,onVisible : function() {
               self.resizeModal();
+              callback();
             }
           })
           .modal('show');

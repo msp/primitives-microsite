@@ -14,21 +14,45 @@
     width: 98%;
 }
 
+.ui.modal .header {
+    font-weight: normal;
+    // font-size: inherit;
+}
+
 .ui.modal .content {
     display: block;
     overflow: auto;
+}
+
+.ui.modal .content p.danni {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 17px;
+    @media only screen and (min-width: 768px) {width: 45%;}
 }
 
 .ui.dimmed.dimmable > .ui.animating.dimmer, .ui.dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
     opacity: 0.8;
 }
 
-.danni {
-    font-style: italic;
+#login-buttons .login-close-text {
+    font-size: 11px;
+}
+
+/* -------------------
+    MSP
+   ------------------- */
+
+.primitives-microsite {
+    background-color: black;
+}
+.accounts-dialog * {
+    font-family: @fontFamily;
 }
 
 .pr {
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: smaller;
 }
 
@@ -50,20 +74,15 @@
     display: none;
 }
 
-
 /* -------------------
     Main Content
    ------------------- */
-
-.primitives-microsite {
-    background-color: black;
-}
 
 body, #main {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    font-family: 'Fauna One', serif;
+    font-family: @fontFamily;
 }
 
 #main {

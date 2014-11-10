@@ -21,6 +21,8 @@ var animations = {
       self.linewidth = 5;
       self.scale = 0.1;
       self.opacity = 0.75;
+      self.animate = false;
+      self.animateTime = 500;
 
 
       this.start =  function() {
@@ -28,6 +30,17 @@ var animations = {
         // console.log("Starting animation..")
         self.begin().start()
         self.running = true;
+
+        setInterval(function(){
+          if (self.animate && self.hotspot.fill == "transparent") {
+            self.hotspot.fill = self.fill;
+          } else {
+            if (self.animate) {
+              self.hotspot.fill = "transparent";
+            }
+          }
+        }, self.animateTime);
+
         return this;
       }
 
@@ -67,13 +80,6 @@ var animations = {
 
       this.update = function(frameCount, timeDelta) {
         // this.hotspot.width = $two.width;
-        if (this.animate) {
-          if (frameCount % 5 == 0) {
-              this.hotspot.fill = "black";
-          } else {
-              this.hotspot.fill = this.fill;
-          }
-        }
       }
 
       this.resizeModal = function () {
