@@ -14,6 +14,7 @@
 
     self.animateTime = 500;
     self.oscillatorFrequency = 150;
+    self.gainValue = 0.4;
 
     drawGeometry();
 

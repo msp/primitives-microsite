@@ -11,10 +11,10 @@
     self.delay = 1000;
 
     self.fill = "lightblue";
-    self.animateTime = 900;
+    self.animateTime = 1000;
 
-    self.oscillatorFrequency = 1500;
-    self.gainValue = 0.1;
+    self.oscillatorFrequency = 500;
+    self.gainValue = 0.05;
 
     drawGeometry();
 
