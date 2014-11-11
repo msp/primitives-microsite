@@ -12,6 +12,9 @@
     self.fill ='#FF8000';
     self.stroke ='darkorange';
 
+    self.animateTime = 500;
+    self.oscillatorFrequency = 150;
+
     drawGeometry();
 
     // Utils

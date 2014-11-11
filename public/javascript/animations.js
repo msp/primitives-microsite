@@ -1,5 +1,5 @@
 var animations = {
-    Animation: function() {
+    Animation: function(audioCtx) {
       var self = this;
       var factor = 1500;
       self.x = 100;
@@ -11,7 +11,10 @@ var animations = {
       self.easing = TWEEN.Easing.Linear.None;
       self.tweens = [];
       self.group = {};
+      self.audioCtx = audioCtx;
       self.soundFile = './data/audio/clips/bass.ogg';
+      self.oscillatorFrequency = 70;
+      self.gainValue = 0.3;
       self.playCount = 0;
       self.hotspot = {};
       self.running = false;
@@ -25,18 +28,48 @@ var animations = {
       self.animateTime = 500;
 
 
+      this.initializeWaveform = function () {
+        // create web audio api context
+        var audioCtx = self.audioCtx;
+
+        // create Oscillator and gain node
+        var oscillator = audioCtx.createOscillator();
+        var gainNode = audioCtx.createGain();
+
+        // connect oscillator to gain node to speakers
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        gainNode.gain.value = self.gainValue;
+
+        self.oscillator = oscillator;
+        self.gainNode = gainNode;
+
+        // set options for the oscillator
+        oscillator.type = 'sine';
+        oscillator.frequency.value = self.oscillatorFrequency; // value in hertz
+
+        // start in Webkit or FF
+        if (window.webkitAudioContext) {
+          oscillator.noteOn(0);
+        } else {
+          oscillator.start();
+        }
+      }
+
       this.start =  function() {
-        // self.sound = new Sound(self.soundFile, self.tweens[0].start());
         // console.log("Starting animation..")
         self.begin().start()
         self.running = true;
+        self.initializeWaveform();
 
         setInterval(function(){
           if (self.animate && self.hotspot.fill == "transparent") {
             self.hotspot.fill = self.fill;
+            self.gainNode.gain.value = self.gainValue;
           } else {
             if (self.animate) {
               self.hotspot.fill = "transparent";
+              self.muteAudio();
             }
           }
         }, self.animateTime);
@@ -61,6 +94,19 @@ var animations = {
         // self.sound.play(options);
       }
 
+      this.destroyAudio = function () {
+        if (window.webkitAudioContext) {
+          self.gainNode.disconnect();
+          self.oscillator.disconnect();
+        } else {
+          self.gainNode.disconnect();
+        }
+      }
+
+      this.muteAudio = function () {
+        self.gainNode.gain.value = 0;
+      }
+
       this.randomUpTo = function(max) {
         return Math.floor((Math.random() * max) + 1);
       }
@@ -73,7 +119,7 @@ var animations = {
       }
 
       this.hoverOff = function() {
-        if (!self.fullscreenState) {
+        if (self.hotspot.scale != 1) {
           self.animate = true;
         }
       }

@@ -4,14 +4,17 @@
     var self = this;
 
     // Geometry
-    var cWidth = $two.width;
+    var cWidth = $two.width - $two.width/4;
 
     self.x = $two.width - $two.width/2;
     self.y = $two.height - $two.height/2;
     self.delay = 1000;
 
     self.fill = "lightblue";
-    self.animateTime = 150;
+    self.animateTime = 900;
+
+    self.oscillatorFrequency = 1500;
+    self.gainValue = 0.1;
 
     drawGeometry();
 

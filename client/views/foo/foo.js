@@ -26,6 +26,8 @@ if (Meteor.isClient) {
       ,autostart: true
     }).appendTo(document.getElementById("two-js-container"));
 
+    $audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
     // geometry
     var $info, $buy, $work;
 
@@ -36,9 +38,9 @@ if (Meteor.isClient) {
 
     // utils
     function initializeScene() {
-      $watch = new AVUgenOne();
-      $buy = new AVUgenTwo();
-      $info = new AVUgenThree();
+      $watch = new AVUgenOne($audioCtx);
+      $buy = new AVUgenTwo($audioCtx);
+      $info = new AVUgenThree($audioCtx);
 
       console.log("$two renderer: ");
       console.log($two.renderer);
@@ -71,6 +73,10 @@ if (Meteor.isClient) {
       $window
         .bind('resize', function() {
           console.log("WINDOW RESIZE w: "+$window.width()+" height: "+$window.height());
+          $info.destroyAudio();
+          $buy.destroyAudio();
+          $watch.destroyAudio();
+
           $two.clear();
 
           initializeScene();
@@ -80,6 +86,11 @@ if (Meteor.isClient) {
 
     function pauseAnimation() {
       console.log("pauseAnimation");
+
+      $info.muteAudio();
+      $buy.muteAudio();
+      $watch.muteAudio();
+
       $info.animate = false;
       $buy.animate = false;
       $watch.animate = false;

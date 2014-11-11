@@ -11,7 +11,8 @@
     self.delay = 500;
 
     self.fill = "red";
-    self.animateTime = 280;
+    self.animateTime = 750;
+    self.oscillatorFrequency = 60;
 
     drawGeometry();
 
