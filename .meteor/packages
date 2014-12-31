@@ -10,9 +10,9 @@ underscore
 accounts-password
 accounts-ui
 aldeed:collection2
-mrt:iron-router-progress
 iron:router
 raix:handlebar-helpers
 nooitaf:semantic-ui
 velocity:html-reporter
 mike:mocha
+multiply:iron-router-progress
