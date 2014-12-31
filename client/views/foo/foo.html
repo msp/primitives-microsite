@@ -5,7 +5,7 @@
         <!-- info modal -->
         <div class="ui modal main scrolling">
           <div class="header">
-            {{ modalTitle }}
+            <h1>{{ modalTitle }}</h1>
           </div>
           <div class="content">
             <div class="right">
@@ -13,14 +13,14 @@
             </div>
           </div>
           <div class="actions">
-            <div class="ui button">OK</div>
+            <div class="ui button">BACK</div>
           </div>
         </div>
 
         <!-- login modal -->
         <div class="ui modal login scrolling">
           <div class="header">
-            {{ modalTitle }}
+            <h1>{{ modalTitle }}</h1>
           </div>
           <div class="content">
             <div class="left">
@@ -28,18 +28,22 @@
             </div>
             <div class="right">
               {{#if currentUser}}
-                <h2>Hi {{ currentUser.username }}</h2>
+                <br/>
                 <p>Thanks for signing in. Please find links below for the downloadable software for you to play with, the src code to hack on (if you're so inclined) and the online versions of the films (turn up your subs).</p>
 
-                <h3>Software</h3>
+                <h2>Software</h2>
 
                 <p>You can grab that <a href="https://www.dropbox.com/s/u5wtps7mghvezed/mspAVUgen1.0-OSX10.6%2B.zip?dl=0">here</a>, please note it's currently only OS X 10.6 and above. Hope to have a Windows version soon.</p>
 
-                <h3>Src code</h3>
+                <h2>Source code</h2>
 
-                <p>Available on <a href="https://github.com/msp/mspAVUgen">Github</a>, you can <code>`git clone git@github.com:msp/mspAVUgen.git'</code> or download a <a href="https://github.com/msp/mspAVUgen/archive/master.zip">zip file</a></p>
+                <p>Available on <a href="https://github.com/msp/mspAVUgen">Github</a>, you can <code>`git clone git@github.com:msp/mspAVUgen.git'</code> or download a <a href="https://github.com/msp/mspAVUgen/archive/master.zip">zip file.</a></p>
 
-                <h3>Films</h3>
+                <h2>README</h2>
+
+                <p>The README can be found at <a href="http://bit.ly/primitives-readme">GDocs</a>, please review this thoroughly.</p>
+
+                <h2>Films</h2>
 
                 <iframe width="960" height="540" src="//www.youtube.com/embed/KRC4ZwK4Fcs?list=PLmUOwG7Iia-IMF2YnXjYxDwYQ0u3I6-6K" frameborder="0" allowfullscreen></iframe>
 
@@ -49,7 +53,7 @@
             </div>
           </div>
           <div class="actions">
-            <div class="ui button">OK</div>
+            <div class="ui button">BACK</div>
           </div>
         </div>
     </div>

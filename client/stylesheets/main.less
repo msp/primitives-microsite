@@ -7,6 +7,8 @@
 /* -------------------
     Semantic Overrides
    ------------------- */
+
+
 /* modal height and content height are set with JS*/
 .ui.modal {
     left: 5px;
@@ -16,21 +18,45 @@
 
 .ui.modal .header {
     font-weight: normal;
-    // font-size: inherit;
+    padding: 1rem 5rem;
+    text-transform: uppercase;
+    background: inherit;
+    border-bottom: 0px solid #ccc;
 }
 
 .ui.modal .content {
     display: block;
     overflow: auto;
+    font-size: 1.3rem;
+}
+
+.ui.modal .content p {
+    line-height: 1.8;
+}
+
+.ui.modal > .content {
+    padding: 1rem 5rem;
+}
+
+i.icon.quote {
+    color: #ccc;
+    margin-bottom: 20px;
 }
 
 .ui.modal .content p.danni {
-    font-size: 14px;
     font-style: italic;
     font-weight: normal;
-    line-height: 17px;
+    line-height: 1.6;
+    padding-left: @quotePadding;
     @media only screen and (min-width: 768px) {width: 45%;}
 }
+
+.ui.modal .content p.danni-signature {
+    font-weight: normal;
+    margin-top: 20px;
+    padding-left: @quotePadding;
+}
+
 
 .ui.dimmed.dimmable > .ui.animating.dimmer, .ui.dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
     opacity: 0.8;
@@ -38,6 +64,11 @@
 
 #login-buttons .login-close-text {
     font-size: 11px;
+}
+
+.ui.modal .actions {
+    background-color: inherit;
+    border-top: 0px solid #ccc;
 }
 
 /* -------------------
@@ -52,8 +83,8 @@
 }
 
 .pr {
-    margin-top: 20px;
-    font-size: smaller;
+    margin-top: 60px;
+    // font-size: smaller;
 }
 
 .fluid-video {
@@ -90,7 +121,6 @@ body, #main {
 }
 
 a {
-    color: inherit;
     transition: 0.3s color;
 
     &:hover {

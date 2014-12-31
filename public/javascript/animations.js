@@ -129,8 +129,8 @@ var animations = {
       }
 
       this.resizeModal = function () {
-        $(".ui.modal").animate({'margin-top': '10px', 'top': '10px'});
-        $(".ui.modal .content").animate({height: $(window).height() - 200});
+        $(".ui.modal").animate({'margin-top': '5px', 'top': '5px'});
+        $(".ui.modal .content").animate({height: $(window).height() - 270});
       }
     }
 };
