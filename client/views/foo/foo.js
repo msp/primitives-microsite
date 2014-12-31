@@ -106,6 +106,7 @@ if (Meteor.isClient) {
         driver.chain(watch.minimize().chain(info.fullscreen(pauseAnimation)));
         driver.start();
         location.hash = "#info";
+        ga('send', 'pageview', location.pathname + location.hash);
       }
 
       function buyFullscreen() {
@@ -114,6 +115,7 @@ if (Meteor.isClient) {
         driver.chain(watch.minimize().chain(buy.fullscreen(pauseAnimation)));
         driver.start();
         location.hash = "#buy";
+        ga('send', 'pageview', location.pathname + location.hash);
       }
 
       function watchFullscreen() {
@@ -122,6 +124,7 @@ if (Meteor.isClient) {
         driver.chain(buy.minimize().chain(watch.fullscreen(pauseAnimation)));
         driver.start();
         location.hash = "#watch";
+        ga('send', 'pageview', location.pathname + location.hash);
       }
 
       // URL triggers
