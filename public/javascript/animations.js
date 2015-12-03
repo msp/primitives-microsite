@@ -48,12 +48,8 @@ var animations = {
         oscillator.type = 'sine';
         oscillator.frequency.value = self.oscillatorFrequency; // value in hertz
 
-        // start in Webkit or FF
-        if (window.webkitAudioContext) {
-          oscillator.noteOn(0);
-        } else {
-          oscillator.start();
-        }
+        // start
+        oscillator.start();
       }
 
       this.start =  function() {
