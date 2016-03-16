@@ -16,3 +16,4 @@ nooitaf:semantic-ui
 velocity:html-reporter
 mike:mocha
 multiply:iron-router-progress
+standard-minifiers

@@ -2,6 +2,7 @@ function loadUser(user) {
   var userAlreadyExists = typeof Meteor.users.findOne({ username : user.username }) === 'object';
 
   if (!userAlreadyExists) {
+    console.log("CREATING! "+user.username);
     Accounts.createUser(user);
   } else {
     console.log("DUPE! "+user.username);
