@@ -2,7 +2,11 @@ h1. Primitives Microsite for Broken20 release
 
 "http://primitives.infrasonics.net":http://primitives.infrasonics.net
 
-h2. Development stack
+h2. Archive
+
+This site is now deployed in archive mode as pure HTML/CSS/JS.
+
+h2. Original development stack
 
 * App Framework: "Meteor":http://meteor.com
 * Boilerplate: "http://matteodem.github.io/meteor-boilerplate":http://matteodem.github.io/meteor-boilerplate
