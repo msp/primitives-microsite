@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Primitives</title>
+
+  <link rel="stylesheet" type="text/css" href="/css/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/compiled-main.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+
+  <script type="text/javascript" src="/javascript/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascript/semantic.min.js"></script>
+  <script type="text/javascript" src="/javascript/two.js"></script>
+  <script type="text/javascript" src="/javascript/tween.js"></script>
+  <script type="text/javascript" src="/javascript/animations.js"></script>
+  <script type="text/javascript" src="/javascript/AVUgenOne.js"></script>
+  <script type="text/javascript" src="/javascript/AVUgenTwo.js"></script>
+  <script type="text/javascript" src="/javascript/AVUgenThree.js"></script>
+  <script type="text/javascript" src="/javascript/boot.js"></script>
+
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+
+    ga('create', 'UA-58124281-1', {
+      'allowAnchor': true
+    });
+    ga('send', 'pageview', {
+      'page': location.pathname + location.search + location.hash
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="testme">
+  </div>
+
+  <div name="foo">
+    <div class="primitives-microsite">
+      <div id="two-js-container">
+      </div>
+
+      <!-- login/watch modal -->
+      <div class="ui modal login scrolling">
+        <div class="header">
+          <h1>!Restricted</h1>
+        </div>
+        <div class="content">
+          <div class="right">
+            <br/>
+            <p>Thanks for signing in. Please find links below for the downloadable software for you to play with, the src code to hack on (if you're so inclined) and the online versions of the DVD films (turn up your subs).</p>
+
+            <h2>Software</h2>
+
+            <p>You can grab that <a href="https://www.dropbox.com/s/u5wtps7mghvezed/mspAVUgen1.0-OSX10.6%2B.zip?dl=0">here</a>, please note it's currently only OS X 10.6 and above. Hope to have a Windows version soon.</p>
+
+            <h2>Source code</h2>
+
+            <p>Available on <a href="https://github.com/msp/mspAVUgen">Github</a>, you can <code>`git clone git@github.com:msp/mspAVUgen.git'</code> or download a <a href="https://github.com/msp/mspAVUgen/archive/master.zip">zip file.</a></p>
+
+            <h2>README</h2>
+
+            <p>The README can be found at <a href="http://bit.ly/primitives-readme">GDocs</a>, please review this thoroughly.</p>
+
+            <h2>Films</h2>
+
+            <iframe width="960" height="540" src="//www.youtube.com/embed/KRC4ZwK4Fcs?list=PLmUOwG7Iia-IMF2YnXjYxDwYQ0u3I6-6K" frameborder="0" allowfullscreen></iframe>
+
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui approve button">BACK</div>
+        </div>
+      </div>
+
+      <!-- info modal -->
+      <div class="ui modal info scrolling">
+        <div class="header">
+          <h1>Primitives</h1>
+        </div>
+        <div class="content">
+          <div class="right">
+            <i class="big quote left icon"></i>
+            <p class="danni">Our world, ultimately, is reducible to parameters - geometry, brightness, loudness.</p>
+            <p class="danni">But just as a storm is more than the combined force of water and electricity, Primitives calls to mind not just the basic physics of primal forms, but also the spectator's inevitably subjective perception of these.</p>
+            <p class="danni">Spatial's custom-built software controls invite chance. Playing permutation, shapes and hues not only expand and contract across space, but also through time. 2D becomes 3D as the dynamic of control and abandon - much like the earth's own
+              magnetism - shimmers and fluctuates. Primitives reminds us that through the tension between coded energies and human agency can be perceived a space of becoming.</p>
+            <p class="danni-signature">Danni Zuvela, 2014</p>
+
+            <div class="pr">
+              <p>'Primitives' was born when <a href="http://spatial.infrasonics.net">Spatial</a> devised a performative installation of light and sound by coding his own software, exploring the OpenFrameworks platform. Influenced by the likes of Sally Golding,
+                Bruce McClure and Greg Pope, he sought to investigate a similar materiality of light, sound and space manifested via the digital domain, to "explore sonic and optical intensity articulated by simple geometric figures and extreme frequencies."
+                He continues: "Projected images drive a sensory assault, consumed by your eyes, then ears, and existing somewhere between perceptions.' Elsewhere in his manifesto he states that he's 'interrogating hacked code for excruciating light' and
+                that it 'brings a new realisation to the relationships between seeing sound and hearing colour."</p>
+
+              <p>'Primitives' has made live appearances at Cafe OTO & Apiary Studios in London and Supernormal Festival in Oxfordshire building the piece to its current form via a variety of evolutionary configurations, developing from the initial single
+                screen staging to an expanded setup that fully inhabits that performance space. The logical next step is to release it to the wider world in some shape - the work itself, Spatial's software that created it and the underlying code to hack
+                the project. But how does a producer and DJ release these related strands into a coherent package that envelops the project's handmade, atavistic blossoming, both visual and aural? How could that blend with his prior output? And fundamentally,
+                who would be mad enough to pull it all together? Step forward
+                <a href="http://www.broken20.com">Broken20</a>, the Glasgow label founded on "an aesthetic, not a genre - releases concerned with decay, erosion, entropy, mistakes and errors, line noise and tape hiss, hum and buzz". And as Broken20's
+                first foray into vinyl following a multi-format splurge of tapes, DVDs and custom made USB sticks it made sense to collaborate on a 12" that was more than just a slab of wax. </p>
+
+              <p>So we have 'Primitives', a <a href="http://store.broken20.com/album/spatial-primitives">DVD</a> containing short films of live A/V content alongside an <a href="http://store.broken20.com/album/spatial-primitives">executable version</a> of
+                the software and the <a href="https://github.com/msp/mspUgen">source code</a> plus a <a href="http://store.broken20.com/album/spatial-primitives">12" record</a> containing four commissioned interpretations by Spatial himself, Broken20's
+                <a href="http://ruaridhtvo.tumblr.com">TVO</a>, <a href="http://magicanddreams.wordpress.com">Bass Clef</a> and <a href="http://tapebox.co.uk">Sculpture</a> aimed somewhat more at the dancefloor. The combination of media represent the
+                totality of the 'Primitives' experience. The DVD contains a series of live, improvised audiovisual art works under two distinct sections: Single Channel & Expanded. </p>
+
+              <p>The Single Channel works are most revealing of the performance process and the underlying software. These screen recordings highlight each sequence as a composition of four AVUgens - base units combining visual representation and its effecting
+                properties on the accompanying sonic component. Deliberately simple relationships, such as a polygon interacting with a sine wave, animate, coalesce and interplay to create an immersive sensory experience. </p>
+
+              <p>The Expanded section takes this technical setup and explores the relationship and geometry of light and sound inhabiting a performance space. Recorded live using various cameras and segmented into a number of short visual works, these films
+                liberate the software from its digital domain to focus on the material aspects of the output within an architecture. Embracing the ensuing degradation of the stylised visual perfection into hacked light, the audio is freed to breathe deep
+                within three dimensions, enjoying the implicit bit crushing and dithering that occurs as it's captured through the camera's built in microphones. </p>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui approve button">BACK</div>
+        </div>
+      </div>
+
+      <!-- buy modal -->
+      <div class="ui modal buy scrolling">
+        <div class="header">
+          <h1>Buy</h1>
+        </div>
+        <div class="content">
+          <div class="right">
+            <div class="fluid-video"><iframe src="//player.vimeo.com/video/104535219" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+            <p>Special edition 12" vinyl, slimline DVD and 3" data cd package available direct from the <a href="http://store.broken20.com/album/spatial-primitives">Broken20 Store</a>.</p>
+            <p>You can read reviews of the 12" component from <a href="http://media.tumblr.com/b9df1023098fc54b84ff94dd6d0a8f74/tumblr_inline_na7o1mKIRB1s9mhgf.png">Wire Magazine</a> and <a href="http://www.residentadvisor.net/review-view.aspx?id=15327">Resident Advisor</a>.
+            </p>
+
+
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui approve button">BACK</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
