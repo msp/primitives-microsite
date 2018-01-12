@@ -102,9 +102,7 @@ AVUgenTwo.prototype.fullscreen = function(callback) {
         })
         .onComplete(function() {
 
-          Session.set("modal", self.modalData());
-
-          $('.modal.main')
+          $('.modal.buy')
             .modal('setting', {
               closable  : false,
               transition  : "vertical flip",
@@ -124,11 +122,3 @@ AVUgenTwo.prototype.fullscreen = function(callback) {
 
   return t;
 };
-
-AVUgenTwo.prototype.modalData = function() {
-  var body = "<div class=\"fluid-video\"><iframe src=\"//player.vimeo.com/video/104535219\" width=\"960\" height=\"540\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>";
-  body += "<p>Special edition 12\" vinyl, slimline DVD and 3\" data cd package available direct from the <a href=\"http://store.broken20.com/album/spatial-primitives\">Broken20 Store</a>.</p>";
-  body += "<p>You can read reviews of the 12\" component from <a href=\"http://media.tumblr.com/b9df1023098fc54b84ff94dd6d0a8f74/tumblr_inline_na7o1mKIRB1s9mhgf.png\">Wire Magazine</a> and <a href=\"http://www.residentadvisor.net/review-view.aspx?id=15327\">Resident Advisor</a>.</p>";
-  return {title: "Buy Primitives", body: body, footer: "buy footer"}
-}
-
