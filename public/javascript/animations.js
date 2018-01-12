@@ -26,6 +26,7 @@ var animations = {
       self.opacity = 0.75;
       self.animate = false;
       self.animateTime = 500;
+      self.dezipSeconds = 0.08;
 
 
       this.initializeWaveform = function () {
@@ -39,14 +40,14 @@ var animations = {
         // connect oscillator to gain node to speakers
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
-        gainNode.gain.value = self.gainValue;
+        gainNode.gain.setTargetAtTime(self.gainValue, audioCtx.currentTime, 0);
 
         self.oscillator = oscillator;
         self.gainNode = gainNode;
 
         // set options for the oscillator
         oscillator.type = 'sine';
-        oscillator.frequency.value = self.oscillatorFrequency; // value in hertz
+        oscillator.frequency.setValueAtTime(self.oscillatorFrequency, audioCtx.currentTime); // value in hertz
 
         // start
         oscillator.start();
@@ -61,7 +62,7 @@ var animations = {
         setInterval(function(){
           if (self.animate && self.hotspot.fill == "transparent") {
             self.hotspot.fill = self.fill;
-            self.gainNode.gain.value = self.gainValue;
+            self.gainNode.gain.setTargetAtTime(self.gainValue, audioCtx.currentTime, self.dezipSeconds);
           } else {
             if (self.animate) {
               self.hotspot.fill = "transparent";
@@ -100,7 +101,7 @@ var animations = {
       }
 
       this.muteAudio = function () {
-        self.gainNode.gain.value = 0;
+        self.gainNode.gain.setTargetAtTime(0, self.audioCtx.currentTime, self.dezipSeconds);
       }
 
       this.randomUpTo = function(max) {
